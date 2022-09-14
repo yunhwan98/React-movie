@@ -20,7 +20,7 @@ function App() {
   },[counter]);
 
   useEffect(()=>{
-    console.log("I run when keyboard &counter changes");
+    console.log("I run when keyboard & counter changes");
   },[keyword,counter]);
 
 
