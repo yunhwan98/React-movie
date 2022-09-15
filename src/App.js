@@ -10,7 +10,7 @@ function App() {
    }
    
    //기존 Array에 toDo 추가
-   setToDos(currentArray => [toDo, ...currentArray]);
+   setToDos((currentArray) => [toDo, ...currentArray]);
    setToDo("");
   }
   console.log(toDos);
@@ -21,6 +21,12 @@ function App() {
         <input onChange={onChange} value={toDo} type="text" placeholder="What your to do..." />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item,index) =>( 
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
