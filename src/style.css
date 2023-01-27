@@ -1,4 +1,69 @@
-button{
-    color: white;
-    background-color: tomato;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  color: white;
+  background-color: tomato;
+}
+
+.movie__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.movie__card {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(244, 241, 237);
+  box-shadow: 1px 1px 0.1px rgb(169, 167, 167);
+  border-radius: 15px;
+}
+.movie__card > img {
+  margin: 10px;
+}
+.movie_info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.movie_info > h2 {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  flex: 1;
+}
+.movie_info > p {
+  display: flex;
+  align-items: center;
+  flex: 5;
+  border: 5px;
+}
+.movie_info > ul {
+  flex: 2;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 75px;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bolder;
+  box-shadow: 1px 1px 0.1px rgb(169, 167, 167);
 }
