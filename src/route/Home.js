@@ -8,6 +8,7 @@ function Home() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const genres = [...new Set(movies.map((movie) => movie.genres).flat(1))];
 
   //검색어에 따른 영화 filter
   const filteredMovies = movies.filter((movie) => {
@@ -30,7 +31,7 @@ function Home() {
 
   return (
     <div>
-      <Nav setSearch={setSearch} />
+      <Nav setSearch={setSearch} genres={genres} />
       {loading ? (
         <h1>Loading...</h1>
       ) : (

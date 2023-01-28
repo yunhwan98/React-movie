@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style.css";
-function Nav({ setSearch }) {
+function Nav({ setSearch, genres }) {
   function handleSearch(event) {
     console.log(event.target.value);
     setSearch(event.target.value);
@@ -15,6 +15,11 @@ function Nav({ setSearch }) {
         </li>
 
         <li>
+          <select>
+            {genres.map((genre) => {
+              return <option key={genre}>{genre}</option>;
+            })}
+          </select>
           <input type="text" placeholder="Enter here" onChange={handleSearch} />
         </li>
       </ul>
