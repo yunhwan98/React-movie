@@ -5,8 +5,15 @@ import Nav from "../components/Nav";
 import "../style.css";
 
 function Home() {
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+
+  //검색어에 따른 영화 filter
+  const filteredMovies = movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(search.toLowerCase());
+  });
+  console.log(filteredMovies);
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -20,15 +27,15 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
+
   return (
     <div>
-      <Nav />
+      <Nav setSearch={setSearch} />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div className="movie__container">
-          {movies.map((movie) => (
+          {filteredMovies.map((movie) => (
             <Movie
               coverImg={movie.medium_cover_image}
               id={movie.id}
