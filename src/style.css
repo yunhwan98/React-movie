@@ -14,6 +14,7 @@ button {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 10px;
+  padding: 1rem;
 }
 
 .movie__card {
@@ -21,7 +22,7 @@ button {
   height: 300px;
   display: flex;
   gap: 10px;
-  background-color: rgb(244, 241, 237);
+  background-color: rgb(255, 255, 255);
   box-shadow: 1px 1px 0.1px rgb(169, 167, 167);
   border-radius: 15px;
 }
@@ -59,11 +60,30 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 75px;
   font-size: 12px;
   background-color: white;
   border-radius: 10px;
   font-weight: bolder;
   box-shadow: 1px 1px 0.1px rgb(169, 167, 167);
+}
+
+nav {
+  display: flex;
+  height: 5vh;
+  width: 100vw;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 10px 10px 10px #d9d9d9, -16px -16px 32px #ffffff;
+}
+
+nav > ul {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+}
+nav > ul > li {
+  border: none;
+  box-shadow: none;
 }
