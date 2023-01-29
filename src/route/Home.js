@@ -9,12 +9,17 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const genres = [...new Set(movies.map((movie) => movie.genres).flat(1))];
-
+  const [selectedGenre, setSelectedGenre] = useState("");
+  console.log(movies);
+  console.log(selectedGenre);
   //검색어에 따른 영화 filter
-  const filteredMovies = movies.filter((movie) => {
-    return movie.title.toLowerCase().includes(search.toLowerCase());
-  });
-  console.log(filteredMovies);
+  const filteredMovies = movies.filter((movie) =>
+    selectedGenre
+      ? movie.genres.includes(selectedGenre) &&
+        movie.title.toLowerCase().includes(search.toLowerCase())
+      : movie.title.toLowerCase().includes(search.toLowerCase())
+  );
+  // console.log(filteredMovies);
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -31,7 +36,11 @@ function Home() {
 
   return (
     <div>
-      <Nav setSearch={setSearch} genres={genres} />
+      <Nav
+        setSearch={setSearch}
+        genres={genres}
+        setSelectedGenre={setSelectedGenre}
+      />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -43,6 +52,7 @@ function Home() {
               title={movie.title}
               summary={movie.summary}
               genres={movie.genres}
+              key={movie.id}
             />
           ))}
         </div>

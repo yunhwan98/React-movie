@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style.css";
-function Nav({ setSearch, genres }) {
+function Nav({ setSearch, genres, setSelectedGenre }) {
   function handleSearch(event) {
     console.log(event.target.value);
     setSearch(event.target.value);
+  }
+
+  function handleSelectGenre(event) {
+    setSelectedGenre(event.target.value);
   }
 
   return (
@@ -15,7 +19,8 @@ function Nav({ setSearch, genres }) {
         </li>
 
         <li>
-          <select>
+          <select onChange={handleSelectGenre}>
+            <option></option>
             {genres.map((genre) => {
               return <option key={genre}>{genre}</option>;
             })}
