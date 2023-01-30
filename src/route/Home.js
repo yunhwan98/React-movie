@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 import "../style.css";
 
 function Home() {
+  const [mode, setMode] = useState("Home");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -40,6 +41,7 @@ function Home() {
         setSearch={setSearch}
         genres={genres}
         setSelectedGenre={setSelectedGenre}
+        mode={mode}
       />
       {loading ? (
         <h1>Loading...</h1>
