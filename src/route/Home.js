@@ -11,8 +11,7 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const genres = [...new Set(movies.map((movie) => movie.genres).flat(1))];
   const [selectedGenre, setSelectedGenre] = useState("");
-  console.log(movies);
-  console.log(selectedGenre);
+
   //검색어에 따른 영화 filter
   const filteredMovies = movies.filter((movie) =>
     selectedGenre
@@ -31,6 +30,11 @@ function Home() {
     setLoading(false);
   };
 
+  const homeHandler = () => {
+    setSearch("");
+    setSelectedGenre("");
+  };
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -42,6 +46,8 @@ function Home() {
         genres={genres}
         setSelectedGenre={setSelectedGenre}
         mode={mode}
+        homeHandler={homeHandler}
+        search={search}
       />
       {loading ? (
         <h1>Loading...</h1>

@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style.css";
-function Nav({ setSearch, genres, setSelectedGenre, mode }) {
+function Nav({
+  search,
+  setSearch,
+  genres,
+  setSelectedGenre,
+  mode,
+  homeHandler,
+}) {
   function handleSearch(event) {
     console.log(event.target.value);
     setSearch(event.target.value);
@@ -17,7 +24,9 @@ function Nav({ setSearch, genres, setSelectedGenre, mode }) {
     <nav>
       <ul>
         <li>
-          <Link to="/React-movie">Netflix</Link>
+          <Link to="/React-movie">
+            <p onClick={() => homeHandler()}>Netflix</p>
+          </Link>
         </li>
         {mode === "Home" && (
           <li>
@@ -31,6 +40,7 @@ function Nav({ setSearch, genres, setSelectedGenre, mode }) {
               type="text"
               placeholder="Enter here"
               onChange={handleSearch}
+              value={search}
             />
           </li>
         )}
